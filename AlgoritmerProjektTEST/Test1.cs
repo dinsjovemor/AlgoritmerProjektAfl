@@ -1,4 +1,5 @@
-﻿namespace AlgoritmerProjektTEST
+﻿using AlgoritmerProjektAfl;
+namespace AlgoritmerProjektTEST
 {
     [TestClass]
     public sealed class Test1
