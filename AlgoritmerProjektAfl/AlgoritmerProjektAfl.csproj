@@ -7,4 +7,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="JSON FIL\notSorted.json" />
+    <None Remove="JSON FIL\reverseSorted.json" />
+    <None Remove="JSON FIL\sorted.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="JSON FIL\notSorted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON FIL\reverseSorted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSON FIL\sorted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
