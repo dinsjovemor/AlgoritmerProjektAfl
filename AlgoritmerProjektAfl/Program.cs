@@ -10,8 +10,10 @@ namespace AlgoritmerProjektAfl
         {
             // Her skal alle sorterings resultater gemmes i Json filen som export
             List<JsonExport> jsonExports = new List<JsonExport>();
+
             // "BaseDirectory" = her fortælles der selve mappenstien, hvor Json filerne ligger
             string projectRoot = Path.Combine(AppContext.BaseDirectory, "JSON FIL");
+
             // Dernæst indlæses de som tekst
             string notSorted = File.ReadAllText(Path.Combine(projectRoot, "notSorted.json"));
             string reverseSorted = File.ReadAllText(Path.Combine(projectRoot, "reverseSorted.json"));
@@ -28,15 +30,17 @@ namespace AlgoritmerProjektAfl
 
             // Her oprettes en outputfil "my_numbers.json"
             string outputfile = Path.Combine(projectRoot, "my_numbers.json");
+
             // Her konverteres resultaterne til Json format som string-type, med en indrykning (bedre læsbarhed)
             string json = JsonSerializer.Serialize(jsonExports, new JsonSerializerOptions { WriteIndented = true });
+
             // Json-filen skrives med resultaterne
             File.WriteAllText(outputfile, json);
 
 
 
         }
-        // 0: Metode, der
+        // Metode, som
         // 1: indlæser data,
         // 2: sorterer med BubbleSort, samt
         // 3: gemmer resultaterne i jsonExports listen
@@ -44,11 +48,12 @@ namespace AlgoritmerProjektAfl
         {
             // Opretter først en ny liste "myList" til at gemme tallene i
             MyList<int> myList = new MyList<int>();
+
             // Konverterer Json teksten til et C# objekt
             JsonValues data = JsonSerializer.Deserialize<JsonValues>(json);
 
             // If statement;
-            // Hvis data ikke er null, så tilføjes tallene til "myList" og sorteres med BubbleSort
+            // Hvis data ikke er null, så tilføjes tallene til "myList"
             if (data != null)
             {
                 //Looper igennem hele array'et "values", én efter én
@@ -66,7 +71,7 @@ namespace AlgoritmerProjektAfl
                 {
                     Console.WriteLine(myList[i]);
                 }
-
+                // Udskriver antal sammenligninger, der er blevet lavet under sorteringen
                 Console.WriteLine($"FINISHED INSERTION SORT WITH COMPARISONCOUNT: {myList.comparisonCount}");
             }
 
@@ -118,6 +123,7 @@ namespace AlgoritmerProjektAfl
         }
 
     }
+    // Klassen bruges til at deserialisere JSON data, som indeholder et array af heltal (values)
     public class JsonValues
     {
         public int[] values { get; set; }
