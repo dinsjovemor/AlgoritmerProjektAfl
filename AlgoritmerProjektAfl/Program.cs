@@ -56,17 +56,18 @@ namespace AlgoritmerProjektAfl
             // Hvis data ikke er null, så tilføjes tallene til "myList"
             if (data != null)
             {
-                //Looper igennem hele array'et "values", én efter én
+                //Looper igennem hele array'et "values", én efter én.
                 for (int i = 0; i < data.values.Length; i++)
                 {
-                    //Tilføjer hvert tal til "myList" ved hjælp af Add-metoden
+                    //Tilføjer hvert tal fra Json til "myList" ved hjælp af Add-metoden
                     myList.Add(data.values[i]);
 
                 }
 
-                //notSortedMyList.BubbleSort();
+                // BubbleSort algoritmen udføres
                 myList.BubbleSort();
 
+                // Printer den sorterede liste i konsollen
                 for (int i = 0; i < myList.Count; i++)
                 {
                     Console.WriteLine(myList[i]);
@@ -75,11 +76,13 @@ namespace AlgoritmerProjektAfl
                 Console.WriteLine($"FINISHED INSERTION SORT WITH COMPARISONCOUNT: {myList.comparisonCount}");
             }
 
+            // Kopierer værdierne fra myList til et almindeligt array
             int[] intArray = new int[myList.Count];
             for(int i = 0; i < intArray.Length; i++)
             {
                 intArray[i] = myList[i];
             }
+            // Opretter Json-objekt med resultaterne og tilføjer resultatet til listen
             JsonExport jsonExport = new JsonExport { jsonFile=filename, sortType="BubbleSort", comparisonCount = myList.comparisonCount, sortedValues = intArray };
             jsonExports.Add(jsonExport);
         }
@@ -87,37 +90,40 @@ namespace AlgoritmerProjektAfl
 
 
 
-
+        // Metode der indlæser data, sorterer med InsertionSort og gemmer resultatet
         public static void InsertionSortMyList(string filename, string json, List<JsonExport> jsonExports)
         {
             MyList<int> myList = new MyList<int>();
+            // Konverterer Json til objekt
             JsonValues data = JsonSerializer.Deserialize<JsonValues>(json);
 
+            // If statement hvis data ikke er lig med null
             if (data != null)
             {
-
+                // Indlæser værdierne i listen
                 for (int i = 0; i < data.values.Length; i++)
                 {
                     myList.Add(data.values[i]);
 
                 }
 
-                //notSortedMyList.InsertionSort();
+                //Udfører InsertionSort algoritmen
                 myList.InsertionSort();
-
+                // Udfører den sorterede liste
                 for (int i = 0; i < myList.Count; i++)
                 {
                     Console.WriteLine(myList[i]);
                 }
-
+                // Udskriver antal sammenligninger, der er blevet lavet under sorteringen
                 Console.WriteLine($"FINISHED INSERTION SORT WITH COMPARISONCOUNT: {myList.comparisonCount}");
             }
-
+            // Konverterer myList til et almindeligt array
             int[] intArray = new int[myList.Count];
             for (int i = 0; i < intArray.Length; i++)
             {
                 intArray[i] = myList[i];
             }
+            // Opretter Json-objekt til eksport og tilføjer det til resultatlisten
             JsonExport jsonExport = new JsonExport { jsonFile = filename, sortType = "InsertionSort", comparisonCount = myList.comparisonCount, sortedValues = intArray };
             jsonExports.Add(jsonExport);
         }
