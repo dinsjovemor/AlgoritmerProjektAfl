@@ -4,16 +4,22 @@ using System.Text;
 
 namespace AlgoritmerProjektAfl
 {
+    // Den generiske listeklasse "MyList<T>
     public class MyList<T>
     {
+        // Array der gemmer elementerne i listen
         private T[] items;
 
+        // Variabel der holder styr på antal elementer i listen
         private int count;
+
+        //Property der giver adgang til Count
         public int Count { get { return count; } }
 
+        // Tæller antal sammenligninger i sorteringsalgoritmer
         public int comparisonCount;
 
-
+        // Konstruktor der opretter listen med en startkapacitet sat på 150, så jeg ikke løber tør for plads, når jeg tilføjer elementer
         public MyList(int capacity = 150)
         {
             items = new T[capacity];
