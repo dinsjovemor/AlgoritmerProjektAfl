@@ -30,7 +30,7 @@ namespace AlgoritmerProjektAfl
         // Metode til at tilføje et element til listen
         public void Add(T item)
         {
-            // Indsltter elementet på næste ledige plads
+            // Indsætter elementet på næste ledige plads
             this.items[Count] = item;
             // Øger antallet af elementer i listen
             count++;

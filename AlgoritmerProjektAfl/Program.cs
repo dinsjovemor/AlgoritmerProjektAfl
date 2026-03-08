@@ -37,7 +37,28 @@ namespace AlgoritmerProjektAfl
             // Json-filen skrives med resultaterne
             File.WriteAllText(outputfile, json);
 
+            Graph<string> forlystelsespark = new Graph<string>();
 
+            forlystelsespark.AddNode("Entrance");
+            forlystelsespark.AddNode("Carousel");
+            forlystelsespark.AddNode("Mini Train");
+            forlystelsespark.AddNode("Ice Cream");
+            forlystelsespark.AddNode("Roller Coaster");
+            forlystelsespark.AddNode("Haunted House");
+            forlystelsespark.AddNode("Water Ride");
+            forlystelsespark.AddNode("Pirate Ship");
+            forlystelsespark.AddNode("Climbing Tower");
+            forlystelsespark.AddNode("Volcano Ride");
+
+            forlystelsespark.AddEdge("Entrance", "Carousel");
+            forlystelsespark.AddEdge("Entrance", "Mini Train");
+            forlystelsespark.AddEdge("Entrance", "Ice Cream");
+            forlystelsespark.AddEdge("Carousel", "Haunted House");
+            forlystelsespark.AddEdge("Carousel", "Roller Coaster");
+            forlystelsespark.AddEdge("Roller Coaster", "Climbing Tower");
+            forlystelsespark.AddEdge("Climbing Tower", "Volcano Ride");
+            forlystelsespark.AddEdge("Mini Train", "Water Ride");
+            forlystelsespark.AddEdge("Ice Cream", "Pirate Ship");
 
         }
         // Metode, som
