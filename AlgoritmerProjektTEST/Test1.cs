@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AlgoritmerProjektTEST;
 
-// Jeg har indført IEnumerable da testen fejlede uden
+// (Jeg har indført IEnumerable da testen fejlede uden)
 public class MyList<T> : IEnumerable<T>
 {
     private List<T> items = new List<T>();
@@ -26,7 +26,7 @@ public class MyList<T> : IEnumerable<T>
     }
 }
 
-{
+
     [TestClass]
     public sealed class Test1
     {
@@ -44,4 +44,4 @@ public class MyList<T> : IEnumerable<T>
             CollectionAssert.AreEqual(expectedSorted.ToArray(), alreadySorted.ToArray());
         }
     }
-}
+

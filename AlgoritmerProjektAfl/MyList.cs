@@ -1,14 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 
 namespace AlgoritmerProjektAfl
 {
-    // Den generiske listeklasse "MyList<T>
-    public class MyList<T>
+    // Den generiske listeklasse "MyList<T>, (jeg tilføjer IEnumerable for at få testen til at fungere)
+    public class MyList<T> : IEnumerable<T>
     {
         // Array der gemmer elementerne i listen
-        private T[] items;
+        private List<T> items; new List<T>
+
+          public void Add(T item)
+        {
+            items.Add(item);
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
 
         // Variabel der holder styr på antal elementer i listen
         private int count;
